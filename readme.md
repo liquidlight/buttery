@@ -1,6 +1,6 @@
 # Buttery
 
-<img src="assets/buttery.svg" alt="buttery">
+<img src="assets/buttery.png" alt="buttery">
 
 _Yes, another jQuery parallax image slider..._
 
