@@ -1,4 +1,4 @@
-# Buttery
+# Buttery.js
 
 <img src="assets/buttery.png" alt="buttery">
 
