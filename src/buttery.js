@@ -11,6 +11,7 @@
 			scale: 1.5, // If you want to scale the image
 			height: 'image', // How high the box is (can be px, % or "image" to use the image height)
 			scrollFraction: 2, // What speed the scrolling effect is
+			image: 'background' // Whether to use a background image or image
 		};
 		options = $.extend(defaults, options);
 
@@ -18,9 +19,9 @@
 		var butteryCalculation = function(window, item) {
 			// Work out the scroll top & use fraction
 			var scroll = window.scrollTop();
-			//
+
 			// If the element is out of view, add the scroll top
-			if(item.wrapper.offset().top > (window.innerHeight())) {
+			if(item.wrapper.offset().top > window.innerHeight()) {
 				scroll = (window.scrollTop() + window.innerHeight() - item.wrapper.offset().top);
 			}
 
@@ -37,12 +38,17 @@
 		// Only run if the element exists
 		var butteryMagic = function(parallaxWrapper) {
 			// Reset the item options for each item
-			var itemOptions = options;
+			var itemOptions = options,
+				imageSrc = (options.image == 'background') ? parallaxWrapper.css('backgroundImage') : parallaxWrapper.find('img').attr('src');
+
+			imageSrc = imageSrc.replace('url(', '').replace(')', '').replace(/['"]+/g, '');
 
 			// Create the element
 			parallaxWrapper.prepend('<div class="' + itemOptions.parallaxSelector.replace('.', '') + '" />');
+
+			var position = (parallaxWrapper.css('position') == 'static') ? 'relative' : parallaxWrapper.css('position');
 			parallaxWrapper.css({
-				'position': 'relative',
+				'position': position,
 				'overflow': 'hidden',
 				'zIndex': '1'
 			});
@@ -59,18 +65,19 @@
 
 			// If the "image" option was selected - work out the height
 			if(itemOptions.height == 'image') {
-				var background = parallaxWrapper.css('backgroundImage')
-					.replace('url(','')
-					.replace(')','')
-					.replace(/['"]+/g, '');
 				var bg = new Image();
-				bg.src = background;
+				bg.src = imageSrc;
 				var ratio = bg.width / bg.height;
 				itemOptions.height = parallaxWrapper.outerWidth() / ratio;
 			}
 
+			if(options.image == 'img') {
+				parallaxWrapper.find('img').hide();
+			}
+
 			// Find the newly created element and apply all the CSS
 			var parallaxObject = parallaxWrapper.find(itemOptions.parallaxSelector);
+
 			parallaxObject.css({
 				'transform': 'translate3d(0, 0, 0) scale(' + itemOptions.scale + ')',
 				'willChange': 'transform',
@@ -83,7 +90,7 @@
 				'transition': 'transform 5ms linear',
 				'zIndex': '-2',
 				'backgroundSize': parallaxWrapper.css('backgroundSize'),
-				'backgroundImage': parallaxWrapper.css('backgroundImage'),
+				'backgroundImage': 'url("' + imageSrc + '")',
 				'backgroundPosition': parallaxWrapper.css('backgroundPosition'),
 				'backgroundRepeat': parallaxWrapper.css('backgroundRepeat')
 			});
@@ -116,7 +123,7 @@
 
 		// "this" is the object initialised with the plugin
 		// loop through, in case there are multiple
-		$(this).each(function(index, el) {
+		$(this).each(function() {
 
 			// If the element actually exists on the page
 			if($(this).length) {
