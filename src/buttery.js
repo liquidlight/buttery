@@ -68,7 +68,7 @@
 				var bg = new Image();
 				bg.src = imageSrc;
 				var ratio = bg.width / bg.height;
-				itemOptions.height = parallaxWrapper.outerWidth() / ratio;
+				itemOptions.height = parallaxWrapper.width() / ratio;
 			}
 
 			if(options.image == 'img') {
