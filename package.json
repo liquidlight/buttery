@@ -1,0 +1,16 @@
+{
+  "name": "buttery",
+  "version": "1.0.0",
+  "description": "A parallax jQuery plugin",
+  "main": "dist/buttery.min.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liquidlight/buttery.git"
+  },
+  "author": "Mike Street",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liquidlight/buttery/issues"
+  },
+  "homepage": "https://github.com/liquidlight/buttery#readme"
+}
