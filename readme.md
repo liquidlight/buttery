@@ -30,3 +30,10 @@ $(window).on('load', function() {
 });
 ```
 
+## Contributing
+
+We welcome pull requests and issues! 
+
+If making a PR, it would be handy if you could please run `npm run dist` before committing and pushing. To run this you will need `uglifyjs` installed as a global module.
+
+If you can't run it, don't let it put you off - we'll run it our end 😀
