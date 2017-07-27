@@ -16,6 +16,7 @@ It creates a new element inside your selected element and sets the background. T
 | `scale` | `1.5` | The scale of the element/image |
 | `height` | `image` | How high the `parallaxSelector` box is (can be `px`, `%` or `'image'` to use the image height) |
 | `scrollFraction` | `2` | What speed the scrolling effect is |
+| `image` | `background` | Whether to use a background image or image in the code |
 
 ## Examples
 
@@ -32,7 +33,7 @@ $(window).on('load', function() {
 
 ## Contributing
 
-We welcome pull requests and issues! 
+We welcome pull requests and issues!
 
 If making a PR, it would be handy if you could please run `npm run dist` before committing and pushing. To run this you will need `uglifyjs` installed as a global module.
 
