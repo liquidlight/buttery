@@ -20,11 +20,13 @@ It creates a new element inside your selected element and sets the background. T
 ## Examples
 
 ```
-$('.banner').buttery({
-	parallaxSelector: '.parallaxInner',
-	scale: 1.5,
-	height: 'image',
-	scrollFraction: 2,
+$(window).on('load', function() {
+	$('.banner').buttery({
+		parallaxSelector: '.parallaxInner',
+		scale: 1.5,
+		height: 'image',
+		scrollFraction: 2,
+	});
 });
 ```
 
