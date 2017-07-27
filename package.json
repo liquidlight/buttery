@@ -15,8 +15,5 @@
   "bugs": {
     "url": "https://github.com/liquidlight/buttery/issues"
   },
-  "homepage": "https://github.com/liquidlight/buttery#readme",
-  "dependencies": {
-    "uglifyjs": "^2.4.11"
-  }
+  "homepage": "https://github.com/liquidlight/buttery#readme"
 }
