@@ -1,3 +1,9 @@
+/*!
+ * Buttery v1.0.0
+ * https://github.com/liquidlight/buttery
+ *
+ * Copyright 2017 Mike Street & Liquid Light
+ */
 (function($){
 	$.fn.buttery = function(options) {
 		var defaults = {
