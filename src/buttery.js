@@ -77,8 +77,8 @@
 				itemOptions.height = parallaxWrapper.width() / ratio;
 			}
 
-			if(options.image == 'image') {
-				parallaxWrapper.find('img').hide();
+			if(options.imageSrc == 'image') {
+				parallaxWrapper.find('img').css({visibility: 'hidden'});
 			}
 
 			// Find the newly created element and apply all the CSS
