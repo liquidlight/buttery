@@ -11,7 +11,7 @@
 			scale: 1.5, // If you want to scale the image
 			height: 'image', // How high the box is (can be px, % or "image" to use the image height)
 			scrollFraction: 2, // What speed the scrolling effect is
-			image: 'background' // Whether to use a background image or image
+			imageSrc: 'background' // Whether to use a background image or image
 		};
 		options = $.extend(defaults, options);
 
@@ -39,15 +39,15 @@
 		var butteryMagic = function(parallaxWrapper) {
 			// Reset the item options for each item
 			var itemOptions = options,
-				imageSrc = (options.image == 'background') ? parallaxWrapper.css('backgroundImage') : parallaxWrapper.find('img').attr('src');
+				imagePath = (options.imageSrc == 'background') ? parallaxWrapper.css('backgroundImage') : parallaxWrapper.find('img').attr('src');
 
 			// If we can't find the image, then exit this instance
-			if(!imageSrc) {
+			if(!imagePath) {
 				return false;
 			}
 
 			// Remove any unwanted characters
-			imageSrc = imageSrc.replace('url(', '').replace(')', '').replace(/['"]+/g, '');
+			imagePath = imagePath.replace('url(', '').replace(')', '').replace(/['"]+/g, '');
 
 			// Create the element
 			parallaxWrapper.prepend('<div class="' + itemOptions.parallaxSelector.replace('.', '') + '" />');
@@ -72,7 +72,7 @@
 			// If the "image" option was selected - work out the height
 			if(itemOptions.height == 'image') {
 				var bg = new Image();
-				bg.src = imageSrc;
+				bg.src = imagePath;
 				var ratio = bg.width / bg.height;
 				itemOptions.height = parallaxWrapper.width() / ratio;
 			}
@@ -96,7 +96,7 @@
 				'transition': 'transform 5ms linear',
 				'zIndex': '-2',
 				'backgroundSize': parallaxWrapper.css('backgroundSize'),
-				'backgroundImage': 'url("' + imageSrc + '")',
+				'backgroundImage': 'url("' + imagePath + '")',
 				'backgroundPosition': parallaxWrapper.css('backgroundPosition'),
 				'backgroundRepeat': parallaxWrapper.css('backgroundRepeat')
 			});
