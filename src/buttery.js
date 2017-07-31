@@ -85,7 +85,7 @@
 			var parallaxObject = parallaxWrapper.find(itemOptions.parallaxSelector);
 
 			parallaxObject.css({
-				'transform': 'translate3d(0, 0, 0) scale(' + itemOptions.scale + ')',
+				'transform': 'translate3d(0, 0, 0) scale(' + ((itemOptions.scale <= 0) ? 0.1 : itemOptions.scale) + ')',
 				'willChange': 'transform',
 				'position': 'absolute',
 				'top': '0',
