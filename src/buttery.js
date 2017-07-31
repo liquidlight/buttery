@@ -41,6 +41,12 @@
 			var itemOptions = options,
 				imageSrc = (options.image == 'background') ? parallaxWrapper.css('backgroundImage') : parallaxWrapper.find('img').attr('src');
 
+			// If we can't find the image, then exit this instance
+			if(!imageSrc) {
+				return false;
+			}
+
+			// Remove any unwanted characters
 			imageSrc = imageSrc.replace('url(', '').replace(')', '').replace(/['"]+/g, '');
 
 			// Create the element
@@ -71,7 +77,7 @@
 				itemOptions.height = parallaxWrapper.width() / ratio;
 			}
 
-			if(options.image == 'img') {
+			if(options.image == 'image') {
 				parallaxWrapper.find('img').hide();
 			}
 
