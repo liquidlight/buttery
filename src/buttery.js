@@ -63,7 +63,7 @@
 				itemOptions.scale = parallaxWrapper.attr('[data-buttery-scale]');
 			}
 			if(parallaxWrapper.is('[data-buttery-scrollFraction]')) {
-				itemOptions.scale = parallaxWrapper.attr('[data-buttery-scrollFraction]');
+				itemOptions.scrollFraction = parallaxWrapper.attr('[data-buttery-scrollFraction]');
 			}
 			if(parallaxWrapper.is('[data-buttery-height]')) {
 				itemOptions.height = parallaxWrapper.attr('[data-buttery-height]');
