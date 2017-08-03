@@ -68,6 +68,9 @@
 			if(parallaxWrapper.is('[data-buttery-height]')) {
 				itemOptions.height = parallaxWrapper.attr('[data-buttery-height]');
 			}
+			if(parallaxWrapper.is('[data-buttery-image]')) {
+				itemOptions.imagePath = parallaxWrapper.attr('[data-buttery-image]');
+			}
 
 			// If the "image" option was selected - work out the height
 			if(itemOptions.height == 'image') {
