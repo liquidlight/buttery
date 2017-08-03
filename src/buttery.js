@@ -15,6 +15,16 @@
 		};
 		options = $.extend(defaults, options);
 
+		// Calculate the height of the element for correct sizing
+		var butteryHeight = function(item) {
+			item.object.css('height', item.wrapper.width() / item.options.ratio);
+
+			// Calculate the max amount of transform so you don't get bleed
+			item.maxTransform = (item.object.innerHeight() * item.options.scale) - item.wrapper.innerHeight();
+
+			return item;
+		}
+
 		// Calculate the position and scroll
 		var butteryCalculation = function(window, item) {
 			// Work out the scroll top & use fraction
@@ -76,8 +86,10 @@
 			if(itemOptions.height == 'image') {
 				var bg = new Image();
 				bg.src = imagePath;
-				var ratio = bg.width / bg.height;
-				itemOptions.height = parallaxWrapper.width() / ratio;
+				itemOptions.ratio = bg.width / bg.height;
+				itemOptions.height = parallaxWrapper.width() / itemOptions.ratio;
+			} else {
+				itemOptions.ratio = parallaxWrapper.width() / itemOptions.height;
 			}
 
 			if(options.imageSrc == 'image') {
@@ -105,14 +117,10 @@
 				'backgroundRepeat': parallaxWrapper.css('backgroundRepeat')
 			});
 
-			// Calculate the max amount of transform so you don't get bleed
-			var maxTransform = (parallaxObject.innerHeight() * itemOptions.scale) - parallaxWrapper.innerHeight();
-
 			var item = {
 				options: itemOptions,
 				wrapper: parallaxWrapper,
-				object: parallaxObject,
-				maxTransform: maxTransform
+				object: parallaxObject
 			};
 
 			// The scroll bind
@@ -122,6 +130,7 @@
 
 			// Recalculate on resize
 			$(window).on('resize.buttery', function() {
+				item = butteryHeight(item);
 				butteryCalculation($(this), item);
 			});
 
