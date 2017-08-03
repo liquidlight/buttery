@@ -91,6 +91,7 @@
 				'top': '0',
 				'left': '0',
 				'width': '100%',
+				'minHeight': parallaxWrapper.height(),
 				'height': itemOptions.height,
 				'transformOrigin': 'top center',
 				'transition': 'transform 5ms linear',
