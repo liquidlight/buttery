@@ -23,7 +23,7 @@
 			item.maxTransform = (item.object.innerHeight() * item.options.scale) - item.wrapper.innerHeight();
 
 			return item;
-		}
+		};
 
 		// Calculate the position and scroll
 		var butteryCalculation = function(window, item) {
