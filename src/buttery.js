@@ -136,6 +136,7 @@
 
 			// Calculate on page load
 			$(window).on('load.buttery', function() {
+				item = butteryHeight(item);
 				butteryCalculation($(this), item);
 			});
 		};
