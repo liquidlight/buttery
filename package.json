@@ -1,6 +1,6 @@
 {
   "name": "buttery",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A parallax jQuery plugin",
   "main": "dist/buttery.min.js",
   "scripts": {
