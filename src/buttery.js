@@ -135,22 +135,21 @@
 			});
 
 			// Calculate on page load
-			$(window).on('load.buttery', function() {
-				item = butteryHeight(item);
-				butteryCalculation($(this), item);
-			});
+			item = butteryHeight(item);
+			butteryCalculation($(this), item);
 		};
 
 		// "this" is the object initialised with the plugin
 		// loop through, in case there are multiple
-		$(this).each(function() {
-
-			// If the element actually exists on the page
-			if($(this).length) {
-
-				// Start the buttery magic
-				butteryMagic($(this));
-			}
+		var butteryElements = $(this);
+		$(window).on('load.buttery', function() {
+			butteryElements.each(function() {
+				// If the element actually exists on the page
+				if ($(this).length) {
+					// Start the buttery magic
+					butteryMagic($(this));
+				}
+			});
 		});
 	};
 })(jQuery);
