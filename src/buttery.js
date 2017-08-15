@@ -4,7 +4,7 @@
  *
  * Copyright 2017 Mike Street & Liquid Light
  */
-(function($){
+(function($) {
 	$.fn.buttery = function(options) {
 		var defaults = {
 			parallaxSelector: '.parallaxInner', // Class of the new div that gets created
@@ -20,7 +20,7 @@
 			item.object.css('height', item.wrapper.width() / item.options.ratio);
 
 			// Calculate the max amount of transform so you don't get bleed
-			item.maxTransform = (item.object.innerHeight() * item.options.scale) - item.wrapper.innerHeight();
+			item.maxTransform = item.object.innerHeight() * item.options.scale - item.wrapper.innerHeight();
 
 			return item;
 		};
@@ -31,15 +31,15 @@
 			var scroll = window.scrollTop();
 
 			// If the element is out of view, add the scroll top
-			if(item.wrapper.offset().top > window.innerHeight()) {
-				scroll = (window.scrollTop() + window.innerHeight() - item.wrapper.offset().top);
+			if (item.wrapper.offset().top > window.innerHeight()) {
+				scroll = window.scrollTop() + window.innerHeight() - item.wrapper.offset().top;
 			}
 
 			// Use the scroll "multiplier" for speed
 			scroll = scroll / item.options.scrollFraction;
 
 			// Check that the scroll amount isn't more than the bleed level
-			var scrollAmount = (scroll > item.maxTransform) ?  item.maxTransform : (scroll < 0) ? 0 : scroll;
+			var scrollAmount = scroll > item.maxTransform ? item.maxTransform : scroll < 0 ? 0 : scroll;
 
 			// Move it
 			item.object.css('transform', 'translate3d(0, -' + scrollAmount + 'px, 0) scale(' + item.options.scale + ')');
@@ -49,10 +49,10 @@
 		var butteryMagic = function(parallaxWrapper) {
 			// Reset the item options for each item
 			var itemOptions = options,
-				imagePath = (options.imageSrc == 'background') ? parallaxWrapper.css('backgroundImage') : parallaxWrapper.find('img').attr('src');
+				imagePath = options.imageSrc == 'background' ? parallaxWrapper.css('backgroundImage') : parallaxWrapper.find('img').attr('src');
 
 			// If we can't find the image, then exit this instance
-			if(!imagePath) {
+			if (!imagePath) {
 				return false;
 			}
 
@@ -60,30 +60,30 @@
 			imagePath = imagePath.replace('url(', '').replace(')', '').replace(/['"]+/g, '');
 
 			// Create the element
-			parallaxWrapper.prepend('<div class="' + itemOptions.parallaxSelector.replace('.', '') + '" />');
+			parallaxWrapper.addClass('hasButtery').prepend('<div class="' + itemOptions.parallaxSelector.replace('.', '') + '" />');
 
-			var position = (parallaxWrapper.css('position') == 'static') ? 'relative' : parallaxWrapper.css('position');
+			var position = parallaxWrapper.css('position') == 'static' ? 'relative' : parallaxWrapper.css('position');
 			parallaxWrapper.css({
-				'position': position,
-				'overflow': 'hidden',
-				'zIndex': '1'
+				position: position,
+				overflow: 'hidden',
+				zIndex: '1'
 			});
 
-			if(parallaxWrapper.is('[data-buttery-scale]')) {
+			if (parallaxWrapper.is('[data-buttery-scale]')) {
 				itemOptions.scale = parallaxWrapper.attr('[data-buttery-scale]');
 			}
-			if(parallaxWrapper.is('[data-buttery-scrollFraction]')) {
+			if (parallaxWrapper.is('[data-buttery-scrollFraction]')) {
 				itemOptions.scrollFraction = parallaxWrapper.attr('[data-buttery-scrollFraction]');
 			}
-			if(parallaxWrapper.is('[data-buttery-height]')) {
+			if (parallaxWrapper.is('[data-buttery-height]')) {
 				itemOptions.height = parallaxWrapper.attr('[data-buttery-height]');
 			}
-			if(parallaxWrapper.is('[data-buttery-image]')) {
+			if (parallaxWrapper.is('[data-buttery-image]')) {
 				itemOptions.imagePath = parallaxWrapper.attr('[data-buttery-image]');
 			}
 
 			// If the "image" option was selected - work out the height
-			if(itemOptions.height == 'image') {
+			if (itemOptions.height == 'image') {
 				var bg = new Image();
 				bg.src = imagePath;
 				itemOptions.ratio = bg.width / bg.height;
@@ -92,7 +92,7 @@
 				itemOptions.ratio = parallaxWrapper.width() / itemOptions.height;
 			}
 
-			if(options.imageSrc == 'image') {
+			if (options.imageSrc == 'image') {
 				parallaxWrapper.find('img').css({visibility: 'hidden'});
 			}
 
@@ -100,21 +100,21 @@
 			var parallaxObject = parallaxWrapper.find(itemOptions.parallaxSelector);
 
 			parallaxObject.css({
-				'transform': 'translate3d(0, 0, 0) scale(' + ((itemOptions.scale <= 0) ? 0.1 : itemOptions.scale) + ')',
-				'willChange': 'transform',
-				'position': 'absolute',
-				'top': '0',
-				'left': '0',
-				'width': '100%',
-				'minHeight': parallaxWrapper.height(),
-				'height': itemOptions.height,
-				'transformOrigin': 'top center',
-				'transition': 'transform 5ms linear',
-				'zIndex': '-2',
-				'backgroundSize': parallaxWrapper.css('backgroundSize'),
-				'backgroundImage': 'url("' + imagePath + '")',
-				'backgroundPosition': parallaxWrapper.css('backgroundPosition'),
-				'backgroundRepeat': parallaxWrapper.css('backgroundRepeat')
+				transform: 'translate3d(0, 0, 0) scale(' + (itemOptions.scale <= 0 ? 0.1 : itemOptions.scale) + ')',
+				willChange: 'transform',
+				position: 'absolute',
+				top: '0',
+				left: '0',
+				width: '100%',
+				minHeight: parallaxWrapper.height(),
+				height: itemOptions.height,
+				transformOrigin: 'top center',
+				transition: 'transform 5ms linear',
+				zIndex: '-2',
+				backgroundSize: parallaxWrapper.css('backgroundSize'),
+				backgroundImage: 'url("' + imagePath + '")',
+				backgroundPosition: parallaxWrapper.css('backgroundPosition'),
+				backgroundRepeat: parallaxWrapper.css('backgroundRepeat')
 			});
 
 			var item = {
