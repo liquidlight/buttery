@@ -1,0 +1,108 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/Cellar/node/7.2.1/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'publish' ]
+2 info using npm@3.10.9
+3 info using node@v7.2.1
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/mike/Sites/buttery',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/mike/.npm/buttery-parallax/1.2.3/package.tgz not in flight; packing
+9 verbose correctMkdir /Users/mike/.npm correctMkdir not in flight; initializing
+10 info lifecycle buttery-parallax@1.2.3~prepublish: buttery-parallax@1.2.3
+11 silly lifecycle buttery-parallax@1.2.3~prepublish: no script for prepublish, continuing
+12 verbose tar pack [ '/Users/mike/.npm/buttery-parallax/1.2.3/package.tgz',
+12 verbose tar pack   '/Users/mike/Sites/buttery' ]
+13 verbose tarball /Users/mike/.npm/buttery-parallax/1.2.3/package.tgz
+14 verbose folder /Users/mike/Sites/buttery
+15 verbose addLocalTarball adding from inside cache /Users/mike/.npm/buttery-parallax/1.2.3/package.tgz
+16 verbose correctMkdir /Users/mike/.npm correctMkdir not in flight; initializing
+17 silly cache afterAdd buttery-parallax@1.2.3
+18 verbose afterAdd /Users/mike/.npm/buttery-parallax/1.2.3/package/package.json not in flight; writing
+19 verbose correctMkdir /Users/mike/.npm correctMkdir not in flight; initializing
+20 verbose afterAdd /Users/mike/.npm/buttery-parallax/1.2.3/package/package.json written
+21 silly publish { name: 'buttery-parallax',
+21 silly publish   version: '1.2.3',
+21 silly publish   description: 'A parallax jQuery plugin',
+21 silly publish   main: 'dist/buttery.min.js',
+21 silly publish   scripts: { dist: 'uglifyjs src/buttery.js --comments \'/^/*!/\' --compress --mangle -o dist/buttery.min.js' },
+21 silly publish   repository:
+21 silly publish    { type: 'git',
+21 silly publish      url: 'git+https://github.com/liquidlight/buttery.git' },
+21 silly publish   author: { name: 'Mike Street' },
+21 silly publish   license: 'ISC',
+21 silly publish   bugs: { url: 'https://github.com/liquidlight/buttery/issues' },
+21 silly publish   homepage: 'https://github.com/liquidlight/buttery#readme',
+21 silly publish   readme: '# Buttery.js\n\n<img src="assets/buttery.png" alt="buttery">\n\n_Yes, another jQuery parallax image slider..._\n\nButtery is a parallax image scroller which uses transforms and doesn\'t allow the user to scroll past the end of the image.\n\nIt creates a new element inside your selected element and sets the background. This element is then adjusted with CSS transforms.\n\n## Parameters\n\n| Parameter | Default | Description |\n|---|---|---|\n| `parallaxSelector` | `\'.parallaxInner\'` | Class of the new div that gets created |\n| `scale` | `1.5` | The scale of the element/image |\n| `height` | `image` | How high the `parallaxSelector` box is (can be `px`, `%` or `\'image\'` to use the image height) |\n| `scrollFraction` | `2` | What speed the scrolling effect is |\n| `image` | `background` | Whether to use a background image or image in the code |\n\n## Examples\n\n```\n$(window).on(\'load\', function() {\n\t$(\'.banner\').buttery({\n\t\tparallaxSelector: \'.parallaxInner\',\n\t\tscale: 1.5,\n\t\theight: \'image\',\n\t\tscrollFraction: 2,\n\t});\n});\n```\n\n## Contributing\n\nWe welcome pull requests and issues!\n\nIf making a PR, it would be handy if you could please run `npm run dist` before committing and pushing. To run this you will need `uglifyjs` installed as a global module.\n\nIf you can\'t run it, don\'t let it put you off - we\'ll run it our end 😀\n',
+21 silly publish   readmeFilename: 'readme.md',
+21 silly publish   gitHead: '063b19424f6e3acfd80d2c2e1bdd290874735151',
+21 silly publish   _id: 'buttery-parallax@1.2.3',
+21 silly publish   _shasum: '2e88c80499001f5f5d9f212fe7be099f5cc8c12a',
+21 silly publish   _from: '.' }
+22 verbose getPublishConfig undefined
+23 silly mapToRegistry name buttery-parallax
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry https://registry.npmjs.org/
+26 silly mapToRegistry data Result {
+26 silly mapToRegistry   raw: 'buttery-parallax',
+26 silly mapToRegistry   scope: null,
+26 silly mapToRegistry   escapedName: 'buttery-parallax',
+26 silly mapToRegistry   name: 'buttery-parallax',
+26 silly mapToRegistry   rawSpec: '',
+26 silly mapToRegistry   spec: 'latest',
+26 silly mapToRegistry   type: 'tag' }
+27 silly mapToRegistry uri https://registry.npmjs.org/buttery-parallax
+28 verbose publish registryBase https://registry.npmjs.org/
+29 silly publish uploading /Users/mike/.npm/buttery-parallax/1.2.3/package.tgz
+30 verbose request uri https://registry.npmjs.org/buttery-parallax
+31 verbose request sending authorization for write operation
+32 info attempt registry request try #1 at 4:32:40 PM
+33 verbose request using bearer token for auth
+34 verbose request id 38c436de7f20ee83
+35 http request PUT https://registry.npmjs.org/buttery-parallax
+36 http 401 https://registry.npmjs.org/buttery-parallax
+37 verbose headers { 'content-type': 'application/json',
+37 verbose headers   'cache-control': 'max-age=300',
+37 verbose headers   'content-length': '54',
+37 verbose headers   'accept-ranges': 'bytes',
+37 verbose headers   date: 'Fri, 13 Oct 2017 15:32:42 GMT',
+37 verbose headers   via: '1.1 varnish',
+37 verbose headers   connection: 'keep-alive',
+37 verbose headers   'x-served-by': 'cache-lcy1122-LCY',
+37 verbose headers   'x-cache': 'MISS',
+37 verbose headers   'x-cache-hits': '0',
+37 verbose headers   'x-timer': 'S1507908762.804555,VS0,VE569',
+37 verbose headers   vary: 'Accept-Encoding, Accept' }
+38 verbose request invalidating /Users/mike/.npm/registry.npmjs.org/buttery-parallax on PUT
+39 error publish Failed PUT 401
+40 verbose stack Error: You must be logged in to publish packages. : buttery-parallax
+40 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:302:12)
+40 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:290:14)
+40 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:210:14)
+40 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:187:22)
+40 verbose stack     at emitTwo (events.js:106:13)
+40 verbose stack     at Request.emit (events.js:191:7)
+40 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1048:10)
+40 verbose stack     at emitOne (events.js:96:13)
+40 verbose stack     at Request.emit (events.js:188:7)
+40 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:969:12)
+41 verbose statusCode 401
+42 verbose pkgid buttery-parallax
+43 verbose cwd /Users/mike/Sites/buttery
+44 error Darwin 17.0.0
+45 error argv "/usr/local/Cellar/node/7.2.1/bin/node" "/usr/local/bin/npm" "publish"
+46 error node v7.2.1
+47 error npm  v3.10.9
+48 error code E401
+49 error You must be logged in to publish packages. : buttery-parallax
+50 error If you need help, you may report this error at:
+50 error     <https://github.com/npm/npm/issues>
+51 verbose exit [ 1, true ]
