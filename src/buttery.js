@@ -9,6 +9,8 @@
 		var defaults = {
 			parallaxSelector: '.parallaxInner', // Class of the new div that gets created
 			scale: 1.5, // If you want to scale the image
+			scaleFraction: 5, // The speed at which the scale effect happens
+			hasScaleEffect: false, // Should the scale adapt to scroll?
 			height: 'image', // How high the box is (can be px, % or "image" to use the image height)
 			scrollFraction: 2, // What speed the scrolling effect is
 			imageSrc: 'background' // Whether to use a background image or image
@@ -41,8 +43,14 @@
 			// Check that the scroll amount isn't more than the bleed level
 			var scrollAmount = scroll > item.maxTransform ? item.maxTransform : scroll < 0 ? 0 : scroll;
 
+			var scaleAmount = item.options.scale;
+
+			if(item.options.hasScaleEffect) {
+				scaleAmount = ((scroll * (item.options.scaleFraction / 1000)) / 10) + 1;
+			}
+
 			// Move it
-			item.object.css('transform', 'translate3d(0, -' + scrollAmount + 'px, 0) scale(' + item.options.scale + ')');
+			item.object.css('transform', 'translate3d(0, -' + scrollAmount + 'px, 0) scale(' + scaleAmount + ')');
 		};
 
 		// Only run if the element exists
