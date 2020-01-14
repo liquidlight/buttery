@@ -1,5 +1,5 @@
 /*!
- * Buttery v1.2.2
+ * Buttery v1.3.0
  * https://github.com/liquidlight/buttery
  *
  * Copyright 2017 Mike Street & Liquid Light
