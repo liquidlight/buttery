@@ -4,7 +4,7 @@
   "description": "A parallax jQuery plugin",
   "main": "dist/buttery.min.js",
   "scripts": {
-    "dist": "uglifyjs src/buttery.js --comments '/^\/*!/' --compress --mangle -o dist/buttery.min.js"
+    "dist": "uglifyjs src/buttery.js --comments '/^/*!/' --compress --mangle -o dist/buttery.min.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/liquidlight/buttery/issues"
   },
-  "homepage": "https://github.com/liquidlight/buttery#readme"
+  "homepage": "https://github.com/liquidlight/buttery#readme",
+  "devDependencies": {
+    "uglify-js": "^3.7.5"
+  }
 }
